@@ -18,14 +18,14 @@ module.exports.logApi = class logApi {
 
             if (init)
             {
-                logResult = await this.log.sendLog(message);
+                logResult = await this.log.sendLog(JSON.stringify(message));
             }
             else {
                 logResult = "Cannot connect to logging system";
             }
         } 
         else {
-            logResult = await this.log.sendLog(message);
+            logResult = await this.log.sendLog(JSON.stringify(message));
         }
     
         return logResult;
