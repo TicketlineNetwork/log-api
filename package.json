@@ -1,0 +1,34 @@
+{
+  "name": "rabbitmq-log-producer",
+  "version": "0.1.0",
+  "description": "A log api that provides log producers with an interface with a rabbitMQ log queue",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run unit-test && npm run integration-test",
+    "integration-test": "mocha ./test/integration/*.js",
+    "unit-test": "mocha ./test/unit/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TicketlineNetwork/log-stack.git"
+  },
+  "keywords": [
+    "log",
+    "rabbitmq",
+    "producer",
+    "provider",
+    "logging"
+  ],
+  "author": "GMeister",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TicketlineNetwork/log-stack/issues"
+  },
+  "homepage": "https://github.com/TicketlineNetwork/log-stack#readme",
+  "dependencies": {
+    "amqplib": "^0.6.0",
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1",
+    "sinon": "^9.2.3"
+  }
+}
