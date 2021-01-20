@@ -1,5 +1,5 @@
 {
-  "name": "rabbitmq-log-producer",
+  "name": "tl-log-api",
   "version": "0.1.0",
   "description": "A log api that provides log producers with an interface with a rabbitMQ log queue",
   "main": "index.js",
@@ -10,21 +10,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TicketlineNetwork/log-stack.git"
+    "url": "git+https://github.com/TicketlineNetwork/log-api.git"
   },
   "keywords": [
     "log",
+    "api",
     "rabbitmq",
     "producer",
     "provider",
+    "publish",
     "logging"
   ],
-  "author": "GMeister",
+  "author": "GMeister - Ticketline",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/TicketlineNetwork/log-stack/issues"
+    "url": "https://github.com/TicketlineNetwork/log-api/issues"
   },
-  "homepage": "https://github.com/TicketlineNetwork/log-stack#readme",
+  "homepage": "https://github.com/TicketlineNetwork/log-api#readme",
   "dependencies": {
     "amqplib": "^0.6.0",
     "chai": "^4.2.0",
