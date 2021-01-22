@@ -28,7 +28,12 @@
   },
   "homepage": "https://github.com/TicketlineNetwork/log-api#readme",
   "dependencies": {
-    "amqplib": "^0.6.0",
+    "amqplib": "^0.6.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^8.2.1",
     "sinon": "^9.2.3"

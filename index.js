@@ -1,35 +1,18 @@
 
 'use strict'
 const logClass= require('./log-classs');
+var log;
 
-module.exports.logApi = class logApi {
-    constructor(logServer) {
-        this.log = new logClass.log(logServer);
-        this.log.init();
-        this.logger = this.logger.bind(this);
-    }
+module.exports.init = async function init (logServer) {
+    log = new logClass.log(logServer);
+    var result = await log.init();
+    return (result);
+}
 
-    async logger (message) {
+module.exports.logger = async function logger (message) {
 
-        let logResult = "";
-    
-        if (!this.log.connected) {
-            let init = await this.log.init();  
-
-            if (init)
-            {
-                logResult = await this.log.sendLog(JSON.stringify(message));
-            }
-            else {
-                logResult = "Cannot connect to logging system";
-            }
-        } 
-        else {
-            logResult = await this.log.sendLog(JSON.stringify(message));
-        }
-    
-        return logResult;
-    }
+    var logResult = await log.sendLog(JSON.stringify(message));
+    return logResult;
 }
 
 
