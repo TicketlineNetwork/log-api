@@ -1,18 +1,26 @@
 'use strict'
 const amqp = require('amqplib/callback_api');
 
+async function sleep(ms) {
+    return new Promise((resolve) => {
+      setTimeout(resolve, ms);
+    });
+}
+
 class log {
     pubConnection;
     pubChannel;
     connected = false;
     channelCreated = false;
-    constructor(logServer) {
+    debugMode = false;
+    constructor(logServer, debug = false) {
         this.logServer = logServer;
         this.connect = this.connect.bind(this);
         this.disconnect = this.disconnect.bind(this);
         this.channel = this.channel.bind(this);
         this.init = this.init.bind(this);
         this.sendLog = this.sendLog.bind(this);
+        this.debugMode = debug;
     }
 
     connect() {
@@ -78,13 +86,28 @@ class log {
     sendLog (message) { 
         return new Promise(async (resolve, reject) => {
             try {
+                let timeLoop = 0;
+                while(!this.channelCreated) {
+                    timeLoop += 1;
+                    await sleep(1000);
+
+                    if (this.debugMode)
+                        console.log("Channel loop");
+
+                    if (this.channelCreated)
+                        break;
+                    
+                    console.log(timeLoop);
+                }
+
                 this.pubChannel.publish('logs', '', Buffer.from(message));
-                console.log('[*] Published message to exchange');
+                if (this.debugMode)
+                    console.log('[*] Published message to exchange');
                 resolve("Log sent");
             }
             catch (e) {
                 console.log(e.message);
-                reject(new Error("Log send failed"));
+                reject(new Error(e.message));
             }           
         })
     }
