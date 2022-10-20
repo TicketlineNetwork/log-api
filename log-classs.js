@@ -106,7 +106,14 @@ class log {
                 resolve("Log sent");
             }
             catch (e) {
-                console.log(e.message);
+                console.log("error on sendLog: ", e.message, this.pubConnection, this.pubChannel);
+                if( !this.pubConnection || !this.pubChannel ) {
+                    try {
+                      this.init();
+                    } catch(e) {
+                        console.log("error on reinit: ", e.message)
+                    }
+                }
                 reject(new Error(e.message));
             }           
         })
