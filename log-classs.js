@@ -106,7 +106,7 @@ class log {
                 resolve("Log sent");
             }
             catch (e) {
-                console.log("error on sendLog: ", e.message, this.pubConnection, this.pubChannel);
+                console.log("error on sendLog: ", e.message, JSON.stringify(this.pubConnection), JSON.stringify(this.pubChannel));
                 if( !this.pubConnection || !this.pubChannel ) {
                     try {
                       this.init();
