@@ -7,7 +7,7 @@ let initialised = false;
 module.exports.init = async function init (logServer, debug = false) {
     log = new logClass.log(logServer, debug);
     var result = await log.init();
-    initialised = true;
+    initialised = result;
     return (result);
 }
 
