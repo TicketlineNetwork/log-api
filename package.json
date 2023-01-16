@@ -36,6 +36,7 @@
     "sinon": "^9.2.3"
   },
   "dependencies": {
-    "amqplib": "^0.10.3"
+    "amqplib": "^0.10.3",
+    "ping": "^0.4.2"
   }
 }
