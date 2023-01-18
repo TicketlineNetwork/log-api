@@ -1,6 +1,6 @@
 {
-  "name": "tl-log-api",
-  "version": "0.3.3",
+  "name": "log-api-tl",
+  "version": "0.3.4",
   "description": "A log api that provides log producers with an interface with a rabbitMQ log queue",
   "main": "index.js",
   "scripts": {
